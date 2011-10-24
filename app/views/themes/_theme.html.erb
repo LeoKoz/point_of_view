@@ -1,0 +1,16 @@
+<tr>
+  <td class="statement">
+    <span class="desc"><%= theme.desc %></span>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(theme.created_at) %> ago.
+    </span>
+  </td>
+  <% user = theme.user rescue User.find(theme.user_id) %>
+  <% if current_user == user %>
+    <td>
+      <%= link_to "delete", theme, :method => :delete,
+                                       :confirm => "You sure?",
+                                       :title => theme.name %>
+    </td>
+  <% end %>
+</tr>

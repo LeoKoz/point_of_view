@@ -1,4 +1,37 @@
 PointOfView::Application.routes.draw do
+  get "pages/home"
+
+  get "pages/contact"
+
+  get "pages/about"
+
+  get "themes/new"
+
+  get "boards/new"
+
+  get "users/new"
+
+  devise_for :users,  :controllers => { :registrations => "registrations" } do
+  	#get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+  	get '/signup' => 'devise/users#new'
+  	get '/signout' => 'devise/sessions#destroy'
+  	get "/signin" => 'devise/sessions#new'
+	end
+
+  resources :boards
+  resources :themes
+  resources :users
+	
+  root :to => "pages#home"
+  
+	match '/contact', :to => 'pages#contact'
+  match '/about',   :to => 'pages#about'
+  match '/help',    :to => 'pages#help'
+	
+  #match '/signup',  :to => 'users#new'
+  #match '/signin',  :to => 'devise/sessions#new'
+  #match '/signout', :to => 'devise/sessions#destroy'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,24 @@
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+
+      <% if @user.themes.any? %>
+        <table class="themes" summary="User themes">
+          <%= render @themes %>
+        </table>
+        <%= will_paginate @themes %>
+      <% end %>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @user.name %><br />
+      <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
+      <strong>Themes</strong> <%= @user.themes.count %>
+      <%= render 'shared/stats' %>
+    </td>
+  </tr>
+</table>
+

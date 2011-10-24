@@ -1,0 +1,13 @@
+<%= form_for(@board, @board.themes.build) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+
+  <div class="name">
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.text_area :desc %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
