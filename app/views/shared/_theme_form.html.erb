@@ -1,6 +1,5 @@
-<%= form_for(@board, @board.themes.build) do |f| %>
+<%= form_for(@board.themes.build) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
-
   <div class="name">
     <%= f.text_field :name %>
   </div>
@@ -10,4 +9,5 @@
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>
+  <%= hidden_field_tag 'board_id', @board.id %>
 <% end %>

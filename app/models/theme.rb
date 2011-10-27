@@ -17,4 +17,8 @@ class Theme < ActiveRecord::Base
 	
 	validates :user_id, :presence => true
 	validates :board_id, :presence => true
+	
+	default_scope :order => 'themes.created_at DESC'
+	
+
 end

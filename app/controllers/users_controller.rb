@@ -14,14 +14,12 @@ class UsersController < AuthorizedController
 
 
   def new
-  	debugger
     @user  = User.new
     @user.create_board
     @title = "Sign up"
   end
   
   def create
-  	debugger
     @user = User.new(params[:user])
     @user.create_board
     if @user.save

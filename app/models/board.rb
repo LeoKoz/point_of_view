@@ -14,4 +14,6 @@ class Board < ActiveRecord::Base
 	has_many :themes
 	
 	validates :user_id, :presence => true
+	
+
 end

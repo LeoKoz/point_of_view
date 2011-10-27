@@ -4,7 +4,8 @@ class PagesController < ApplicationController
     @title = "Home"
 
     if signed_in?
-      @theme = Theme.new
+      #@theme = Theme.new
+      redirect_to current_user.board
       #@feed_items = current_user.feed.paginate(:page => params[:page])
     end
   end

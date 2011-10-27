@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   
   has_one :board
   has_many :themes,	:dependent => :destroy
-  
+  has_many :statements, :dependent => :destroy
   # Constant variable storing roles in the system
   ROLES_MASK = %w[admin moderator user]
   

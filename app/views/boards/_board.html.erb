@@ -1,5 +1,5 @@
 <li>
 	<%= link_to board.user_id, board %>
-	<%= render board.themes.last if board.themes.any?%>
+	<%= render board.themes.first if board.themes.any?%>
 
 </li>

@@ -5,7 +5,7 @@
         <%= gravatar_for @board.user %>
         <%= @board.user.name %>
       </h1>
-     
+     	<%= render 'shared/theme_form' %>
       <% if @board.themes.any? %>
         <table class="themes" summary="Board themes">
           <%= render @themes %>

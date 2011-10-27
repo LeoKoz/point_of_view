@@ -21,6 +21,7 @@ PointOfView::Application.routes.draw do
   resources :boards
   resources :themes
   resources :users
+  resources :statements
 	
   root :to => "pages#home"
   

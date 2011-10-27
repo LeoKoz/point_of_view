@@ -3,9 +3,9 @@ class ThemesController < AuthorizedController
   end
 	
   def create
-  	@theme.board = Board.find(params[:board_id])
+  	board = Board.find(params[:board_id])
     @theme = current_user.themes.build(params[:theme])
-    
+    @theme.board = board
     if @theme.save
       redirect_to root_path, :flash => { :success => "Theme created!" }
     else
@@ -19,10 +19,10 @@ class ThemesController < AuthorizedController
     @theme.destroy
     redirect_to root_path, :flash => { :success => "Theme deleted!" }
   end
-=begin
-  def authorized_user
-      @theme = current_user.themes.find_by_id(params[:id])
-      redirect_to root_path if @theme.nil?
+  
+  def take
+  	#@theme = Theme.find(params[:id])	
+   # @theme.destroy
+    redirect_to root_path, :flash => { :success => "Theme taken!" }
   end
-=end
 end
